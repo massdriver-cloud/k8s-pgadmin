@@ -1,0 +1,1 @@
+. += {"commonLabels": .md_metadata.default_tags, "podLabels": .md_metadata.default_tags} | del(.md_metadata)

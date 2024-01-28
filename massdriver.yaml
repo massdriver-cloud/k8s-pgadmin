@@ -1,0 +1,115 @@
+schema: draft-07
+name: k8s-pgadmin
+description: pgAdmin4 is the leading Open Source management tool for Postgres, providing a powerful graphical interface that simplifies the creation, maintenance and use of database objects.
+source_url: github.com/YOUR_ORG/k8s-pgadmin
+access: private
+type: application
+
+steps:
+  - path: chart
+    provisioner: helm
+
+
+params:
+  required:
+    - provisioner
+    - replicaCount
+    - env
+    - resources
+  properties:
+    provisioner:
+      type: object
+      title: Provisioner Configuration
+      required:
+        - namespace
+      properties:
+        namespace:
+          title: Namespace
+          type: string
+    replicaCount:
+      type: integer
+      title: replicaCount
+      default: 1
+      minimum: 1
+    env:
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          title: email
+          description: can be email or nickname
+          default: chart@domain.com
+        password:
+          type: string
+          title: password
+          format: password
+      type: object
+      title: env
+    resources:
+      properties:
+        requests:
+          properties:
+            cpu:
+              type: number
+              title: cpu
+              default: 0.1
+              minimum: 0.001
+            memory:
+              type: integer
+              title: memory
+          type: object
+          required:
+            - cpu
+            - memory
+          title: requests
+          description: resource requests
+      type: object
+      required:
+        - requests
+      title: resources
+  type: object
+
+
+
+connections:
+  required:
+    - kubernetes_cluster
+    - database
+  properties:
+    kubernetes_cluster:
+      $ref: massdriver/kubernetes-cluster
+    database:
+      $ref: massdriver/postgresql-authentication
+
+
+#########
+### Uncomment below to enable producing artifacts for your web service.
+### You only need to uncomment the following if you intend to connect your internal services in Massdriver.
+### You will also need to uncomment the contents of `src/_artifacts.tf`.
+#########
+#
+# artifacts:
+#   required:
+#     - public
+#     - internal
+#   properties:
+#     public:
+#       $ref: massdriver/api
+#     internal:
+#       $ref: massdriver/api
+
+
+ui:
+  ui:order:
+    - provisioner
+    - replicaCount
+    - env
+    - resources
+    - "*"
+  resources:
+    requests:
+      memory:
+        ui:field: conversionFieldData
+        unit: Bytes
