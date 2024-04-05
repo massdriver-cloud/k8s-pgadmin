@@ -1,15 +1,154 @@
+[![Massdriver][logo]][website]
+
 # k8s-pgadmin
+
+[![Release][release_shield]][release_url]
+[![Contributors][contributors_shield]][contributors_url]
+[![Forks][forks_shield]][forks_url]
+[![Stargazers][stars_shield]][stars_url]
+[![Issues][issues_shield]][issues_url]
+[![MIT License][license_shield]][license_url]
+
 
 pgAdmin4 is the leading Open Source management tool for Postgres, providing a powerful graphical interface that simplifies the creation, maintenance and use of database objects.
 
-An example application using this template can be found [here](https://github.com/massdriver-cloud/application-examples/tree/main/k8s/phoenix-chat-example).
 
-## Massdriver `kubernetes-deployment` Template
+---
 
-The `kubernetes-deployment` template will run your application on AWS, GCP, or Azure Kubernetes.
+## Design
 
-**Files**:
+For detailed information, check out our [Operator Guide](operator.mdx) for this bundle.
 
-* a [terraform module](./src) is included that configures IAM permissions and sets up you environment variables. You likely _do not_ need to modify these files. This module is simply rigging code to integrate with Massdriver Cloud.
-* a [helm chart](./src/chart) has been created to run a kubernetes deployment. This Helm chart is a great getting started point for deploying to Kubernetes. Feel free to modify the chart to customize your application deployment.
-* the [`massdriver.yaml`](./massdriver.yaml) controls the UI to expose for configuring your application and its dependencies. By default there are a lot of fields in your [`params`](https://docs.massdriver.cloud/bundles/configuration#bundle-params) section, feel free to remove fields that you do not want exposed in your configuration form in Massdriver Cloud. Values that you do not want to change (e.g.: your image repository) can be hard coded in the [values.yaml](./src/chart/values.yaml) file.
+## Usage
+
+Our bundles aren't intended to be used locally, outside of testing. Instead, our bundles are designed to be configured, connected, deployed and monitored in the [Massdriver][website] platform.
+
+### What are Bundles?
+
+Bundles are the basic building blocks of infrastructure, applications, and architectures in [Massdriver][website]. Read more [here](https://docs.massdriver.cloud/concepts/bundles).
+
+## Bundle
+
+### Params
+
+Form input parameters for configuring a bundle for deployment.
+
+<details>
+<summary>View</summary>
+
+<!-- PARAMS:START -->
+
+**Params coming soon**
+
+<!-- PARAMS:END -->
+
+</details>
+
+### Connections
+
+Connections from other bundles that this bundle depends on.
+
+<details>
+<summary>View</summary>
+
+<!-- CONNECTIONS:START -->
+
+**Connections coming soon**
+
+<!-- CONNECTIONS:END -->
+
+</details>
+
+### Artifacts
+
+Resources created by this bundle that can be connected to other bundles.
+
+<details>
+<summary>View</summary>
+
+<!-- ARTIFACTS:START -->
+
+**Artifacts coming soon**
+
+<!-- ARTIFACTS:END -->
+
+</details>
+
+## Contributing
+
+<!-- CONTRIBUTING:START -->
+
+### Bug Reports & Feature Requests
+
+Did we miss something? Please [submit an issue](https://github.com/massdriver-cloud/k8s-pgadmin/issues) to report any bugs or request additional features.
+
+### Developing
+
+**Note**: Massdriver bundles are intended to be tightly use-case scoped, intention-based, reusable pieces of IaC for use in the [Massdriver][website] platform. For this reason, major feature additions that broaden the scope of an existing bundle are likely to be rejected by the community.
+
+Still want to get involved? First check out our [contribution guidelines](https://docs.massdriver.cloud/bundles/contributing).
+
+### Fix or Fork
+
+If your use-case isn't covered by this bundle, you can still get involved! Massdriver is designed to be an extensible platform. Fork this bundle, or [create your own bundle from scratch](https://docs.massdriver.cloud/bundles/development)!
+
+<!-- CONTRIBUTING:END -->
+
+## Connect
+
+<!-- CONNECT:START -->
+
+Questions? Concerns? Adulations? We'd love to hear from you!
+
+Please connect with us!
+
+[![Email][email_shield]][email_url]
+[![GitHub][github_shield]][github_url]
+[![LinkedIn][linkedin_shield]][linkedin_url]
+[![Twitter][twitter_shield]][twitter_url]
+[![YouTube][youtube_shield]][youtube_url]
+[![Reddit][reddit_shield]][reddit_url]
+
+<!-- markdownlint-disable -->
+
+[logo]: https://raw.githubusercontent.com/massdriver-cloud/docs/main/static/img/logo-with-logotype-horizontal-400x110.svg
+[docs]: https://docs.massdriver.cloud/?utm_source=github&utm_medium=readme&utm_campaign=k8s-pgadmin&utm_content=docs
+[website]: https://www.massdriver.cloud/?utm_source=github&utm_medium=readme&utm_campaign=k8s-pgadmin&utm_content=website
+[github]: https://github.com/massdriver-cloud?utm_source=github&utm_medium=readme&utm_campaign=k8s-pgadmin&utm_content=github
+[slack]: https://massdriverworkspace.slack.com/?utm_source=github&utm_medium=readme&utm_campaign=k8s-pgadmin&utm_content=slack
+[linkedin]: https://www.linkedin.com/company/massdriver/?utm_source=github&utm_medium=readme&utm_campaign=k8s-pgadmin&utm_content=linkedin
+
+
+
+[contributors_shield]: https://img.shields.io/github/contributors/massdriver-cloud/k8s-pgadmin.svg?style=for-the-badge
+[contributors_url]: https://github.com/massdriver-cloud/k8s-pgadmin/graphs/contributors
+[forks_shield]: https://img.shields.io/github/forks/massdriver-cloud/k8s-pgadmin.svg?style=for-the-badge
+[forks_url]: https://github.com/massdriver-cloud/k8s-pgadmin/network/members
+[stars_shield]: https://img.shields.io/github/stars/massdriver-cloud/k8s-pgadmin.svg?style=for-the-badge
+[stars_url]: https://github.com/massdriver-cloud/k8s-pgadmin/stargazers
+[issues_shield]: https://img.shields.io/github/issues/massdriver-cloud/k8s-pgadmin.svg?style=for-the-badge
+[issues_url]: https://github.com/massdriver-cloud/k8s-pgadmin/issues
+[release_url]: https://github.com/massdriver-cloud/k8s-pgadmin/releases/latest
+[release_shield]: https://img.shields.io/github/release/massdriver-cloud/k8s-pgadmin.svg?style=for-the-badge
+[license_shield]: https://img.shields.io/github/license/massdriver-cloud/k8s-pgadmin.svg?style=for-the-badge
+[license_url]: https://github.com/massdriver-cloud/k8s-pgadmin/blob/main/LICENSE
+
+
+[email_url]: mailto:support@massdriver.cloud
+[email_shield]: https://img.shields.io/badge/email-Massdriver-black.svg?style=for-the-badge&logo=mail.ru&color=000000
+[github_url]: mailto:support@massdriver.cloud
+[github_shield]: https://img.shields.io/badge/follow-Github-black.svg?style=for-the-badge&logo=github&color=181717
+[linkedin_url]: https://linkedin.com/in/massdriver-cloud
+[linkedin_shield]: https://img.shields.io/badge/follow-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&color=0A66C2
+[twitter_url]: https://twitter.com/massdriver?utm_source=github&utm_medium=readme&utm_campaign=k8s-pgadmin&utm_content=twitter
+[twitter_shield]: https://img.shields.io/badge/follow-Twitter-black.svg?style=for-the-badge&logo=twitter&color=1DA1F2
+[discourse_url]: https://community.massdriver.cloud?utm_source=github&utm_medium=readme&utm_campaign=k8s-pgadmin&utm_content=discourse
+[discourse_shield]: https://img.shields.io/badge/join-Discourse-black.svg?style=for-the-badge&logo=discourse&color=000000
+[youtube_url]: https://www.youtube.com/channel/UCfj8P7MJcdlem2DJpvymtaQ
+[youtube_shield]: https://img.shields.io/badge/subscribe-Youtube-black.svg?style=for-the-badge&logo=youtube&color=FF0000
+[reddit_url]: https://www.reddit.com/r/massdriver
+[reddit_shield]: https://img.shields.io/badge/subscribe-Reddit-black.svg?style=for-the-badge&logo=reddit&color=FF4500
+
+<!-- markdownlint-restore -->
+
+<!-- CONNECT:END -->
