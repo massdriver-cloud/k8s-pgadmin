@@ -8,6 +8,8 @@ type: application
 steps:
   - path: chart
     provisioner: helm
+    config:
+      namespace: .params.provisioner.namespace
 
 
 params:
@@ -72,7 +74,6 @@ params:
   type: object
 
 
-
 connections:
   required:
     - kubernetes_cluster
@@ -84,21 +85,12 @@ connections:
       $ref: massdriver/postgresql-authentication
 
 
-#########
-### Uncomment below to enable producing artifacts for your web service.
-### You only need to uncomment the following if you intend to connect your internal services in Massdriver.
-### You will also need to uncomment the contents of `src/_artifacts.tf`.
-#########
-#
-# artifacts:
-#   required:
-#     - public
-#     - internal
-#   properties:
-#     public:
-#       $ref: massdriver/api
-#     internal:
-#       $ref: massdriver/api
+artifacts:
+  required:
+    - internal
+  properties:
+    internal:
+      $ref: massdriver/api
 
 
 ui:
