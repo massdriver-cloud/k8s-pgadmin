@@ -3,7 +3,6 @@ name: k8s-pgadmin
 version: 1.0.0
 description: pgAdmin4 is the leading Open Source management tool for Postgres, providing a powerful graphical interface that simplifies the creation, maintenance and use of database objects.
 source_url: https://github.com/massdriver-cloud/k8s-pgadmin
-type: application
 steps:
 - path: chart
   provisioner: helm
