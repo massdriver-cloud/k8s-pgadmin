@@ -1,29 +1,25 @@
 schema: draft-07
 name: k8s-pgadmin
+version: 1.0.0
 description: pgAdmin4 is the leading Open Source management tool for Postgres, providing a powerful graphical interface that simplifies the creation, maintenance and use of database objects.
-source_url: github.com/YOUR_ORG/k8s-pgadmin
-access: private
-type: application
-
+source_url: https://github.com/massdriver-cloud/k8s-pgadmin
 steps:
-  - path: chart
-    provisioner: helm
-    config:
-      namespace: .params.provisioner.namespace
-
-
+- path: chart
+  provisioner: helm
+  config:
+    namespace: ".params.provisioner.namespace"
 params:
   required:
-    - provisioner
-    - replicaCount
-    - env
-    - resources
+  - provisioner
+  - replicaCount
+  - env
+  - resources
   properties:
     provisioner:
       type: object
       title: Provisioner Configuration
       required:
-        - namespace
+      - namespace
       properties:
         namespace:
           title: Namespace
@@ -35,8 +31,8 @@ params:
       minimum: 1
     env:
       required:
-        - email
-        - password
+      - email
+      - password
       properties:
         email:
           type: string
@@ -63,43 +59,37 @@ params:
               title: memory
           type: object
           required:
-            - cpu
-            - memory
+          - cpu
+          - memory
           title: requests
           description: resource requests
       type: object
       required:
-        - requests
+      - requests
       title: resources
   type: object
-
-
 connections:
   required:
-    - kubernetes_cluster
-    - database
+  - kubernetes_cluster
+  - database
   properties:
     kubernetes_cluster:
-      $ref: massdriver/kubernetes-cluster
+      "$ref": massdriver/kubernetes-cluster
     database:
-      $ref: massdriver/postgresql-authentication
-
-
+      "$ref": massdriver/postgresql-authentication
 artifacts:
   required:
-    - internal
+  - internal
   properties:
     internal:
-      $ref: massdriver/api
-
-
+      "$ref": massdriver/api
 ui:
   ui:order:
-    - provisioner
-    - replicaCount
-    - env
-    - resources
-    - "*"
+  - provisioner
+  - replicaCount
+  - env
+  - resources
+  - "*"
   resources:
     requests:
       memory:
