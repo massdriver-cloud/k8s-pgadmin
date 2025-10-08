@@ -3,11 +3,17 @@ name: k8s-pgadmin
 version: 1.0.0
 description: pgAdmin4 is the leading Open Source management tool for Postgres, providing a powerful graphical interface that simplifies the creation, maintenance and use of database objects.
 source_url: https://github.com/massdriver-cloud/k8s-pgadmin
+
 steps:
 - path: chart
   provisioner: helm
   config:
+    chart:
+      repo: '@text "https://helm.runix.net"'
+      name: '@text "pgadmin4"'
+      version: '@text "1.50.0"'
     namespace: ".params.provisioner.namespace"
+
 params:
   required:
   - provisioner
@@ -68,6 +74,7 @@ params:
       - requests
       title: resources
   type: object
+
 connections:
   required:
   - kubernetes_cluster
@@ -77,12 +84,14 @@ connections:
       "$ref": massdriver/kubernetes-cluster
     database:
       "$ref": massdriver/postgresql-authentication
+
 artifacts:
   required:
   - internal
   properties:
     internal:
       "$ref": massdriver/api
+
 ui:
   ui:order:
   - provisioner
