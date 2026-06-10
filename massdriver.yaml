@@ -81,16 +81,16 @@ connections:
   - database
   properties:
     kubernetes_cluster:
-      "$ref": massdriver/kubernetes-cluster
+      "$ref": kubernetes-cluster
     database:
-      "$ref": massdriver/postgresql-authentication
+      "$ref": postgresql-authentication
 
 artifacts:
   required:
   - internal
   properties:
     internal:
-      "$ref": massdriver/api
+      "$ref": api
 
 ui:
   ui:order:
